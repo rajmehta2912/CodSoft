@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>THE LOCAL CRAFT FOOD </title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Crete+Round&family=Hubballi&family=Lora&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav id="navbar">
+        <div id="logo">
+            <img src="logo.jpg" alt="The Local Craft Food.com">
+        </div>
+        <ul>
+            <li class="item"><a href="#home">Home</a></li>
+            <li class="item"><a href="#services-container">Services</a></li>
+            <li class="item"><a href="#client-section">Our Clients</a></li>
+            <li class="item"><a href="#contact">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <section id="home">
+        <h1 class="h-primary">Welcome to The Local Craft Food</h1>
+             <P>The Local Craft Food is a venture-backed restaurant that operates in Uttrakhand<P>
+             <P>At our service you can draw on local expertise to aid your quest for good food around the coutnry </P>
+            <button class="btn">Order Now</button>   
+     </section>
+
+    <section id="services-container">
+        <h1 class="h-primary center">Our Services</h1>
+        <div id="services">
+            <div class="box">
+                <img src="pic1.png" alt="Image not found">
+                <h2 class="h-secondary center">Home Delivery</h2>
+                <p class="center">Your Favorite Food  straight out of the kitchen to directly to your doorstep. The best service to fulfill your expectations.
+                    Good food within minutes delivering it hot and yummy. </p>
+            </div>
+            <div class="box">
+                <img src="pic3.png" alt="Image not found">
+                <h2 class="h-secondary center">Catering</h2>
+                <p class="center">Regarding of the venue, location, or service, we provide the foremost catering service. We provide seasonal menu option and provide the equipment such as dishes, spoons, place settings, and wine glasses needed to serve guests at an event.
+                </p>
+            </div>
+            <div class="box">
+                <img src="pic2.png" alt="Image not found">
+                <h2 class="h-secondary">Cafes</h2>
+                <p class="center">uk02 Cofee shops <br>
+                        Open Daily! <br>
+                    08:00 Am - 11:00 Pm  <br>
+              Up to 30% off for first time customers
+              So come quickly with your love ones and spends some good moments with them. 
+              Our Branches are located in Haldwani,Bageshar,Almora and Nanital .
+                </p>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="client-section">
+        <h1 class="h-primary center">Our Partners</h1>
+        <div id="clients">
+            <div class="client-items">
+                <img src="Swiggy.png" alt="Image not found">
+            </div>
+            <div class="client-items">
+                <img src="Burger.png" alt="Image not found">
+            </div>
+            <div class="client-items">
+                <img src="Kfc.png" alt="Image not found">
+            </div>
+            <div class="client-items">
+                <img src="Mcd.png" alt="Image not found">
+            </div>
+            <div class="client-items">
+                <img src="pizza.png" alt="Image not found">
+            </div>
+            <div class="client-items">
+                <img src="Star.png" alt="Image not found">
+            </div>
+         </div>
+    </section>
+
+    <section id="contact">
+        <h1 class="h-primary center">Contact Us</h1>
+        <div id="contact-box">
+            <form name="submit-to-google-sheet">
+                <div class="form-group">
+                    <label for="Name">Name</label>
+                    <input type="text" name="Name" id="Name" placeholder="Enter Your Name">
+                </div>
+                <div class="form-group">
+                    <label for="Email">Email</label>
+                    <input type="Email" name="Email" id="Email" placeholder="Enter Your Email">
+                </div>
+                <div class="form-group">
+                    <label for="Phone Number">Phone Number</label>
+                    <input type="Number" name="Phone" id="Phone" placeholder="Enter Your Number">
+                </div>
+                <div class="form-group">
+                    <label for="Message">Message</label>
+                  <textarea name="Message" id="Message" cols="30" rows="10"></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn2">Submit</button>
+                </div>
+                <span id="msg"></span>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="center">
+            Copyright &copy; www.TheLocalCraftFood.com. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        const scriptURL = "https://script.google.com/macros/s/AKfycbz-I3uY8nEUUkcImFefbAl5xhGWQmCzzT9eEuEtBfq9hCNFQ1nMvDG3F9EtcIxNY4wP/exec";
+        const form = document.forms["submit-to-google-sheet"];
+          const msg = document.getElementById("msg");
+    
+          form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            fetch(scriptURL, { method: "POST", body: new FormData(form) })
+              .then((response) => {
+                msg.innerHTML = "Message sent Successfully";
+                setTimeout(function () {
+                  msg.innerHTML = "";
+                }, 1000);
+                form.reset()
+              })
+              .catch((error) => console.error("Error!", error.message));
+          });
+      </script>
+
+
+</body>
+
+</html>
